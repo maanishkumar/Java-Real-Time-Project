@@ -1,0 +1,371 @@
+
+===================1==========
+
+package com.nit.logical;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ArrayLeftRotation1 {
+	// ------------Logics for left rotation-------------
+
+	public static void leftRotationByOne(int arrayLength, int[] array, int p) {
+		int i, temp;
+		temp = array[0];
+		for (i = 1; i < arrayLength; i++) {
+			int j = array[i];
+			array[i - 1] = j;
+		}
+		array[(array.length) - 1] = temp;
+	}
+
+	public static void leftRotation(int arrayLength, int[] array, int p) {
+		for (int k = 0; k < p; k++) {
+			leftRotationByOne(arrayLength, array, p);
+		}
+		System.out.println("Left Rotation Done successfully : " + Arrays.toString(array));
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter length of array:");
+		int arrayLength = sc.nextInt();
+
+		int[] array = new int[arrayLength];
+
+		System.out.println("Enter array elements:");
+		for (int i = 0; i < arrayLength; i++) {
+			array[i] = sc.nextInt();
+		}
+
+		String arr = Arrays.toString(array);
+
+		System.out.println("Entered array elements are: " + arr);
+		System.out.println("No of position u want for left rotation:");
+		int p = sc.nextInt();
+
+		leftRotation(arrayLength, array, p);
+	}
+}
+========================22222================================================2=
+package com.nit.logical;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ArrayRightRotation2 {
+	// ------------Logics for right rotation-------------
+
+	public static void rightRotationByOne(int arrayLength, int[] array, int p) {
+		int i, temp;
+		temp = array[arrayLength - 1];
+		
+		for (i =arrayLength-2; i>=0; i--) {
+			int j = array[i];
+			array[i + 1] = j;
+		}
+		array[0] = temp;
+		System.out.println(Arrays.toString(array));
+	}
+
+	public static void rightRotation(int arrayLength, int[] array, int p) {
+		for (int k = 0; k < p; k++) {
+			rightRotationByOne(arrayLength, array, p);
+		}
+		System.out.println("Right Rotation Done successfully : " + Arrays.toString(array));
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter length of array:");
+		int arrayLength = sc.nextInt();
+
+		int[] array = new int[arrayLength];
+
+		System.out.println("Enter array elements:");
+		for (int i = 0; i < arrayLength; i++) {
+			array[i] = sc.nextInt();
+		}
+
+		String arr = Arrays.toString(array);
+
+		System.out.println("Entered array elements are: " + arr);
+		System.out.println("No of position u want for right rotation:");
+		int p = sc.nextInt();
+
+		rightRotation(arrayLength, array, p);
+		//rightRotationByOne(arrayLength, array, p);
+	}
+}
+==========================333333333333=============================================3
+package com.nit.logical;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ArraySegregate0and1 {
+
+	public static void segregate0and1(int[] array, int arrayLength) {
+		int countZero = 0, countOne = 0;
+		for (int i = 0; i < arrayLength; i++) {
+			if (array[i] == 0) {
+				countZero++;
+			} else {
+				countOne++;
+			}
+		}
+		for (int i = 0; i < countZero; i++) {
+			array[i] = 0;
+		}
+		for (int i = countZero; i < arrayLength; i++) {
+			array[i] = 1;
+		}
+		System.out.println("zero=" + countZero);
+		System.out.println("One=" + countOne);
+		System.out.println("After segregate, elements of Array : "+Arrays.toString(array));
+		
+	}
+	
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter length of array:");
+		int arrayLength = sc.nextInt();
+
+		int[] array = new int[arrayLength];
+
+		System.out.println("Enter array elements:");
+		for (int i = 0; i < arrayLength; i++) {
+			array[i] = sc.nextInt();
+		}
+
+		segregate0and1(array, arrayLength);
+
+	}
+
+}
+
+=========================4444444444=====================================4====
+package com.nit.logical;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ArraySegregate0n1n2 {
+	
+	// logics
+
+	public static void segregate0and1and2(int[] array, int arrayLength) {
+		int countZero = 0, countOne = 0,countTwo=0;
+		for (int i = 0; i < arrayLength; i++) {
+			if (array[i] == 0) {
+				countZero++;
+			} else if(array[i] == 1) {
+				countOne++;
+			}
+			else {
+				countTwo++;
+			}
+		}
+		for (int i = 0; i < countZero; i++) {
+			array[i] = 0;
+		}
+		for (int i = countZero; i < arrayLength; i++) {
+			array[i] = 1;
+		}
+		for (int i = (countZero+countOne); i < arrayLength; i++) {
+			array[i] = 2;
+		}
+		
+		System.out.println("zero=" + countZero);
+		System.out.println("One=" + countOne);
+		System.out.println("Two=" + countTwo);
+		System.out.println("After segregate, elements of Array : "+Arrays.toString(array));
+		
+	}
+	
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter length of array:");
+		int arrayLength = sc.nextInt();
+
+		int[] array = new int[arrayLength];
+
+		System.out.println("Enter array elements:");
+		for (int i = 0; i < arrayLength; i++) {
+			array[i] = sc.nextInt();
+		}
+
+
+		segregate0and1and2(array, arrayLength);
+
+	}
+
+}
+=====================5555555555555=============================================5=========
+package com.nit.logical;
+
+import java.util.Scanner;
+
+public class ArrayLeaderElement5 {
+
+	public static void arrayLeaderElement(int[] array, int arrayLength) {
+		int i, j,  maxCount = 0, indxOfLdrEle = -1;
+		for (i = 0; i < arrayLength; i++) {
+			int count = 0;
+			for (j = 0; j < arrayLength; j++) {
+				if (array[j] == array[i]) {
+					count++;
+				}
+			}
+			// update maxCount if count of current element is greater
+			if (count > maxCount) {
+				maxCount = count;
+				indxOfLdrEle = i;
+			}
+		}
+		
+		if (maxCount > (arrayLength / 2)) {
+			System.out.println("Leader element is : " + array[indxOfLdrEle]);
+		} else {
+			System.out.println("Leader element doesn't  exist ");
+		}
+	}
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter length of array:");
+		int arrayLength = sc.nextInt();
+
+		int[] array = new int[arrayLength];
+
+		System.out.println("Enter array elements:");
+		for (int i = 0; i < arrayLength; i++) {
+			array[i] = sc.nextInt();
+		}
+		arrayLeaderElement(array, arrayLength);
+
+	}
+
+}
+========================66666666666666666===========================================6========
+package com.nit.logical;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ArraySuperElement6 {
+	
+
+	public static void arraySuperElement(int[] array, int arrayLength) {
+		int i, j, k = 0, count = 0;
+		int[] superArray = new int[arrayLength];
+		for (i = 0; i < arrayLength; i++) {
+			for (j = 0; j < arrayLength; j++) {
+				if (array[i] < array[j]) {
+					count++;
+				}
+			}
+			if (count >= 2) {
+				superArray[k++] = array[i];
+			}
+			count = 0;
+		}
+		System.out.println("Super elements are" + Arrays.toString(superArray));
+
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter length of array:");
+		int arrayLength = sc.nextInt();
+
+		int[] array = new int[arrayLength];
+
+		System.out.println("Enter array elements:");
+		for (int i = 0; i < arrayLength; i++) {
+			array[i] = sc.nextInt();
+		}
+		arraySuperElement(array, arrayLength);
+	
+	}
+
+}
+==========================7777777777777============================================7
+package com.nit.logical;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ArrayAssignment7 {
+	
+	public static void arrayNewMaxMin(int[] array, int arrayLength) {
+		int i, k = 0;
+		int[] temp = new int[arrayLength];
+		for (i = 0; i < arrayLength / 2; i++) {
+			temp[k++] = array[(arrayLength - 1) - i];
+			temp[k++] = array[i];
+		}
+		System.out.println("Input Array(sorted)" + Arrays.toString(array));
+		System.out.println("New Array" + Arrays.toString(temp));
+	}
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter length of array:");
+		int arrayLength = sc.nextInt();
+
+		int[] array = new int[arrayLength];
+
+		System.out.println("Enter sorted array elements:");
+		for (int i = 0; i < arrayLength; i++) {
+			array[i] = sc.nextInt();
+		}
+		arrayNewMaxMin(array, arrayLength);
+	
+	}
+
+}
+============================888888888888888============================================8=======
+package com.nit.logical;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class ArrayAssignment8 {
+
+	public static void arrayNewSumExcept(int[] array, int arrayLength) {
+		int i, sumTotal = 0;
+		int[] arrayNew = new int[arrayLength];
+		for (i = 0; i < arrayLength; i++) {
+			sumTotal = sumTotal + array[i];
+		}
+		int x=sumTotal;
+		for (i = 0; i < arrayLength; i++) {
+			int y = x - array[i];
+			arrayNew[i]=y;
+		}
+		
+		System.out.println("Old Array"+Arrays.toString(array));
+		System.out.println("New array"+Arrays.toString(arrayNew));
+	}
+	
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter length of array:");
+		int arrayLength = sc.nextInt();
+
+		int[] array = new int[arrayLength];
+
+		System.out.println("Enter array elements:");
+		for (int i = 0; i < arrayLength; i++) {
+			array[i] = sc.nextInt();
+		}
+		arrayNewSumExcept(array, arrayLength);
+
+	}
+
+}
+
